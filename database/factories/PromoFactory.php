@@ -21,8 +21,14 @@ class PromoFactory extends Factory
      */
     public function definition()
     {
+        $type = (rand(1, 2) == 1) ? "amount_off" : "percent_off";
+
+        $this->faker->addProvider(new \Bezhanov\Faker\Provider\Commerce($this->faker));
         return [
-            //
+            'name' => $this->faker->productName,
+            'type' => $type,
+            'value' => rand(1, 100),
+            'code' => $this->faker->numberBetween(10000, 99999),
         ];
     }
 }

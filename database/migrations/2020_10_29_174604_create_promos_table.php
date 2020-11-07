@@ -17,7 +17,7 @@ class CreatePromosTable extends Migration
             $table->id();
             $table->string('name');
             $table->enum('type', ['amount_off', 'percent_off']);
-            $table->integer('value');
+            $table->unsignedBigInteger('value');
             $table->string('code');
             $table->timestamps();
         });

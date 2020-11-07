@@ -25,6 +25,7 @@ class ProductFactory extends Factory
         return [
             'name' => $this->faker->productName,
             'price' => $this->faker->numberBetween(1, 999999),
+            'items_left' => null,
         ];
     }
 }

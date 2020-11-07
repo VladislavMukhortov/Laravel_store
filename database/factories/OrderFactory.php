@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Order;
+use App\Models\Promo;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -25,6 +26,8 @@ class OrderFactory extends Factory
         return [
             'user_id' => User::factory(),
             'total_amount' => $this->faker->numberBetween(1, 99999999),
+            'subtotal_amount' => $this->faker->numberBetween(1, 99999999),
+            'promo_id' => Promo::factory()
         ];
     }
 }

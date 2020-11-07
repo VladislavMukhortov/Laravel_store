@@ -16,11 +16,13 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedInteger('subtotal_amount');
-            $table->unsignedInteger('total_amount');
+            $table->unsignedBigInteger('subtotal_amount');
+            $table->unsignedBigInteger('total_amount');
+            $table->unsignedBigInteger('promo_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('promo_id')->references('id')->on('promos');
         });
     }
 

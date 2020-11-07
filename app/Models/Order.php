@@ -20,4 +20,9 @@ class Order extends Model
     {
         return $this->hasMany(OrderProduct::class);
     }
+
+    public function promo(): BelongsTo
+    {
+        return $this->belongsTo(Promo::class);
+    }
 }
